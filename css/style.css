@@ -1303,6 +1303,16 @@ section {
         min-height: 80vh;
     }
 
+    .hero-image img {
+    width: 280px;
+    height: 280px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center 100%;
+    border-radius: 50%;
+    border: 5px solid var(--white);
+    box-shadow: var(--shadow);
+}
     .about-content {
         grid-template-columns: 1fr;
     }
@@ -1826,4 +1836,63 @@ body[data-theme="dark"] .form-group label {
         width: 44px;
         height: 44px;
     }
+}
+
+/* Perfect circular profile photo */
+
+.hero-image img {
+    display: block;
+
+    width: 280px;
+    height: 280px;
+
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center 25%;
+
+    border-radius: 50%;
+    border: 5px solid var(--white);
+
+    box-shadow: var(--shadow);
+}
+/* Remove the pale glow behind the photo in light mode */
+body:not([data-theme="dark"]) .hero::before {
+    display: none;
+}
+/* Center the profile photo */
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    display: block;
+    width: 280px;
+    height: 280px;
+
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+
+    object-fit: cover;
+    object-position: 50% 25%;
+
+    border: 4px solid var(--white);
+
+    /* A subtle, clean shadow */
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.10);
+}
+
+/* Smaller circular photo on mobile */
+@media (max-width: 900px) {
+    .hero-image img {
+        width: 220px;
+        height: 220px;
+        object-position: 50% 25%;
+    }
+}
+
+/* Softer shadow in dark mode */
+body[data-theme="dark"] .hero-image img {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
